@@ -1,0 +1,33 @@
+.search-form-wrapper {
+  margin-left: 1rem;
+  max-width: 300px;
+  width: 100%;
+}
+
+.search-form {
+
+  &__input {
+    max-width: 300px;
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+    background-color: #3F4448;
+    border-radius: 0.5rem;
+    border:none;
+    outline: none;
+    caret-color: #8e8e8e;
+    color: #FFF;
+  }
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #8e8e8e;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #8e8e8e;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #8e8e8e;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #8e8e8e;
+}
