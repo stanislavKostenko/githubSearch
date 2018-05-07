@@ -2,7 +2,6 @@ import { UserProfile } from '../../types/user.types';
 import { action, computed, observable } from 'mobx';
 import { searchFormProvider } from './SearchForm.provider';
 
-
 export class SearchFormStore {
     @observable
     private _userProfile: UserProfile;
@@ -20,7 +19,7 @@ export class SearchFormStore {
         return this._errorMessage;
     }
 
-    private userData(login: string) {
+    userData(login: string) {
         searchFormProvider
             .getUserProfile(login)
             .then(this.updateUserProfile.bind(this))
@@ -33,5 +32,6 @@ export class SearchFormStore {
     @action
     private updateUserProfile(user: UserProfile) {
         this._userProfile = user;
+        console.log(this._userProfile);
     }
 }
