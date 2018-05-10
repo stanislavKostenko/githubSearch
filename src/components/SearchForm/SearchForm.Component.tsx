@@ -5,6 +5,7 @@ import { InputComponent } from '../Input/Input.Component';
 import { SearchFormStore } from './SearchForm.store';
 
 interface SearchFormComponentProps {
+
 }
 
 interface SearchFormComponentState {
@@ -22,7 +23,6 @@ export class SearchFormComponent extends React.Component<SearchFormComponentProp
     }
 
     onInputHandler(login: string) {
-        console.log(login);
         this.setState( (state) => {
             return {...state, login};
         });

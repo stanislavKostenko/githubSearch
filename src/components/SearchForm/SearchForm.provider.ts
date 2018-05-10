@@ -4,7 +4,7 @@ import { appConfigs } from '../../configs/configs';
 
 export class SearchFormProvider extends BaseProvider {
     getUserProfile(login: string): Promise<UserProfile> {
-        return this.get<UserProfile>(`users/${login}/repos?access_token=${appConfigs.token}`);
+        return this.get<UserProfile>(`users/${login}?access_token=${appConfigs.token}`);
     }
 }
 
