@@ -6,6 +6,9 @@ export class SearchFormProvider extends BaseProvider {
     getUserProfile(login: string): Promise<UserProfile> {
         return this.get<UserProfile>(`users/${login}?access_token=${appConfigs.token}`);
     }
+    getUserRepositories(login: string): Promise<UserProfile> {
+        return this.get<UserProfile>(`users/${login}/repos?access_token=${appConfigs.token}`);
+    }
 }
 
 export const searchFormProvider = new SearchFormProvider();

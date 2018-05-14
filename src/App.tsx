@@ -1,14 +1,14 @@
 import * as React from 'react';
 import './App.scss';
-import { observer } from 'mobx-react';
 import { HeaderComponent } from './components/Header/Header.Component';
 import { SearchFormStore } from './components/SearchForm/SearchForm.store';
 import { UserInfoComponent } from './components/UserInfo/UserInfo.Component';
+import { observer } from 'mobx-react';
+import { UserRepositoriesListComponent } from './components/Repositories/UserRepositoriesList.Component';
 
 interface AppProps {
-    userInfo: SearchFormStore;
+    userStore: SearchFormStore;
 }
-
 @observer
 class App extends React.Component<AppProps, {}> {
     constructor(props: AppProps) {
@@ -16,9 +16,10 @@ class App extends React.Component<AppProps, {}> {
     }
     render() {
         return (
-            <div>
+            <div className="app">
                 <HeaderComponent />
-                <UserInfoComponent data={this.props.userInfo.userProfile}/>
+                <UserInfoComponent data={this.props.userStore.userProfile} />
+                <UserRepositoriesListComponent data={this.props.userStore.userRepositories} />
             </div>
 
         );

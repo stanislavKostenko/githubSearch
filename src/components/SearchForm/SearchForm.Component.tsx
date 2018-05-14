@@ -2,7 +2,7 @@ import * as React from 'react';
 import './SearchForm.scss';
 import { FormEvent } from 'react';
 import { InputComponent } from '../Input/Input.Component';
-import { SearchFormStore } from './SearchForm.store';
+import { SearchFormStore, searchStore } from './SearchForm.store';
 
 interface SearchFormComponentProps {
 
@@ -11,8 +11,10 @@ interface SearchFormComponentProps {
 interface SearchFormComponentState {
     login: string;
 }
+
 export class SearchFormComponent extends React.Component<SearchFormComponentProps, SearchFormComponentState> {
-    protected searchStore: SearchFormStore = new SearchFormStore();
+    private searchStore: SearchFormStore = searchStore;
+    
     constructor(props: SearchFormComponentProps) {
         super(props);
         this.onInputHandler = this.onInputHandler.bind(this);

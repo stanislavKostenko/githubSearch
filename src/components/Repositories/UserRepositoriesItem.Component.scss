@@ -1,0 +1,23 @@
+.repositories__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  color: #24292E;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #24292E;
+    color: #FFFFFF;
+    transition: 0.8s;
+
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  &__language {
+    text-decoration: underline;
+  }
+}

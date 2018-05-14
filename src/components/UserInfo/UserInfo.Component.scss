@@ -1,0 +1,53 @@
+.user-info {
+  max-width: 980px;
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__avatar {
+    max-width: 230px;
+    width: 100%;
+    height: 230px;
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    max-width: 230px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &_media {
+      max-width: 750px;
+      width: 100%;
+      font-size: 1.75rem;
+      font-weight: 300;
+      display: flex;
+      justify-content: space-around;
+      height: 50px;
+    }
+
+    &__name {
+      font-size: 1.5rem;
+    }
+
+    &__login {
+      font-size: 1.3rem;
+      font-weight: lighter;
+      padding: 0.5rem;
+    }
+
+    &__email {
+      font-size: 1rem;
+      font-weight: 300;
+      > i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
