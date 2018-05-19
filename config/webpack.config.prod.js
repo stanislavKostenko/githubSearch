@@ -38,12 +38,12 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // Note: defined here because it will be used more than once.
 const cssFilename = './static/css/[name].[contenthash:8].css';
 
-// ExtractTextPlugin expects the build output to be flat.
+// ExtractTextPlugin expects the docs output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
 // To have this structure working with relative paths, we have to use custom options.
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
-  ? // Making sure that the publicPath goes back to to build folder.
+  ? // Making sure that the publicPath goes back to to docs folder.
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
@@ -54,12 +54,12 @@ module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
-  // You can exclude the *.map files from the build during deployment.
+  // You can exclude the *.map files from the docs during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
-    // The build folder.
+    // The docs folder.
     path: paths.appBuild,
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
@@ -165,7 +165,7 @@ module.exports = {
           // but unlike in development configuration, we do something different.
           // `ExtractTextPlugin` first applies the "postcss" and "css" loaders
           // (second argument), then grabs the result CSS and puts it into a
-          // separate file in our build process. This way we actually ship
+          // separate file in our docs process. This way we actually ship
           // a single CSS file in production instead of JS code injecting <style>
           // tags. If you use code splitting, however, any async bundles will still
           // use the "style" loader inside the async code so CSS from them won't be
@@ -266,7 +266,7 @@ module.exports = {
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
-          // "file" loader makes sure assets end up in the `build` folder.
+          // "file" loader makes sure assets end up in the `docs` folder.
           // When you `import` an asset, you get its filename.
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
@@ -348,7 +348,7 @@ module.exports = {
       fileName: 'asset-manifest.json',
     }),
     // Generate a service worker script that will precache, and keep up to date,
-    // the HTML & assets that are part of the Webpack build.
+    // the HTML & assets that are part of the Webpack docs.
     new SWPrecacheWebpackPlugin({
       // By default, a cache-busting query parameter is appended to requests
       // used to populate the caches, to ensure the responses are fresh.
@@ -358,7 +358,7 @@ module.exports = {
       filename: 'service-worker.js',
       logger(message) {
         if (message.indexOf('Total precache size is') === 0) {
-          // This message occurs for every build and is a bit too noisy.
+          // This message occurs for every docs and is a bit too noisy.
           return;
         }
         if (message.indexOf('Skipping static resource') === 0) {
@@ -374,7 +374,7 @@ module.exports = {
       // Ignores URLs starting from /__ (useful for Firebase):
       // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
       navigateFallbackWhitelist: [/^(?!\/__).*/],
-      // Don't precache sourcemaps (they're large) and build asset manifest:
+      // Don't precache sourcemaps (they're large) and docs asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
     // Moment.js is an extremely popular library that bundles large locale files

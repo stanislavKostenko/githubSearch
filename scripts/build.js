@@ -39,7 +39,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
 
-// First, read the current file sizes in build directory.
+// First, read the current file sizes in docs directory.
 // This lets us display how much they changed later.
 measureFileSizesBeforeBuild(paths.appBuild)
   .then(previousFileSizes => {
@@ -48,7 +48,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
     fs.emptyDirSync(paths.appBuild);
     // Merge with the public folder
     copyPublicFolder();
-    // Start the webpack build
+    // Start the webpack docs
     return build(previousFileSizes);
   })
   .then(
@@ -99,9 +99,9 @@ measureFileSizesBeforeBuild(paths.appBuild)
     }
   );
 
-// Create the production build and print the deployment instructions.
+// Create the production docs and print the deployment instructions.
 function build(previousFileSizes) {
-  console.log('Creating an optimized production build...');
+  console.log('Creating an optimized production docs...');
 
   let compiler = webpack(config);
   return new Promise((resolve, reject) => {
