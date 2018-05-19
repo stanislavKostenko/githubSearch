@@ -1,9 +1,15 @@
 .repositories__item {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
   color: #24292E;
   cursor: pointer;
+  border: 1px solid #24292E;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem auto;
 
   &:hover {
     background-color: #24292E;

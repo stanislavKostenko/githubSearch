@@ -1,0 +1,27 @@
+.repositories__details {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  transition: 2s ease;
+  border: 1px solid #24292E;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+
+  > span {
+    margin-top: 0.5rem;
+  }
+
+  &__name {
+    font-size: 2rem;
+  }
+
+  &__site-link {
+    margin-top: 0.5rem;
+  }
+
+}

@@ -9,19 +9,20 @@ import { UserRepositoriesListComponent } from './components/Repositories/UserRep
 interface AppProps {
     userStore: SearchFormStore;
 }
+
 @observer
 class App extends React.Component<AppProps, {}> {
     constructor(props: AppProps) {
         super(props);
     }
+
     render() {
         return (
             <div className="app">
-                <HeaderComponent />
-                <UserInfoComponent data={this.props.userStore.userProfile} />
-                <UserRepositoriesListComponent data={this.props.userStore.userRepositories} />
+                <HeaderComponent/>
+                <UserInfoComponent data={this.props.userStore.userProfile}/>
+                <UserRepositoriesListComponent data={this.props.userStore.userRepositories}/>
             </div>
-
         );
     }
 }
